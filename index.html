@@ -1,16 +1,83 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Мой таймлайн</title>
-  <style>
-    body { margin: 0; }
-    iframe { display: block; width: 100vw; height: 100vh; border: 0; }
-  </style>
+<meta charset="UTF-8">
+<title>Мой таймлайн</title>
+
+<!-- ═══════════════════════════════════════════════════════════
+     НАСТРОЙКИ — здесь меняйте параметры таймлайна
+     ───────────────────────────────────────────────────────────
+     source  = URL вашей Google-таблицы (то, что вы уже получили)
+     lang    = ru / en / de / fr / ...
+     height  = высота таймлайна в пикселях
+     initial_zoom = начальный масштаб (0–10). Больше — плотнее.
+     font    = Default / Georgia / Helvetica / ...
+     theme   = URL вашего CSS на GitHub (raw-ссылка)
+     ═══════════════════════════════════════════════════════════ -->
+
+<style>
+  body {
+    margin: 0;
+    background: #0d1117;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  header {
+    padding: 20px 40px;
+    border-bottom: 1px solid #21262d;
+    color: #e6edf3;
+  }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header p  { margin: 4px 0 0; color: #6e7681; font-size: 13px; }
+
+  /* Контейнер для iframe */
+  .timeline-wrap {
+    width: 100%;
+    height: calc(100vh - 90px);
+    padding: 20px 40px;
+  }
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+</style>
 </head>
 <body>
 
-<iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vTGm01ph57RVtKPam6h5HF1xeg3eRjHHLkYZhF2i7N6J-Ky2XB4bjTHCp60mzK1yvt0P30eHZBIYpeK&font=Default&lang=ru&initial_zoom=2&width=100%25&height=650&theme=https://raw.githubusercontent.com/KirillNil1212/my-timeline-theme/refs/heads/main/theme.css' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+<header>
+  <h1>Digital Humanities: три потока</h1>
+  <p>Прокрутите, чтобы увидеть события. Колесо мыши — масштаб.</p>
+</header>
+
+<div class="timeline-wrap">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       САМ ТАЙМЛАЙН — iframe с параметрами
+       ───────────────────────────────────────────────────────────
+       Меняете только эти параметры в src:
+         &lang=ru                — язык интерфейса
+         &initial_zoom=2         — начальный масштаб
+         &height=650             — внутренняя высота
+         &theme=...              — URL вашего CSS
+       Всё остальное (source=...) уже настроено на вашу таблицу.
+       ═══════════════════════════════════════════════════════════ -->
+
+  <iframe
+    src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vTGm01ph57RVtKPam6h5HF1xeg3eRjHHLkYZhF2i7N6J-Ky2XB4bjTHCp60mzK1yvt0P30eHZBIYpeK&font=Default&lang=ru&initial_zoom=2&width=100%25&height=650&theme=https://raw.githubusercontent.com/KirillNil1212/my-timeline-theme/refs/heads/main/theme.css"
+    width="100%"
+    height="650"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+    frameborder="0">
+  </iframe>
+
+</div>
 
 </body>
 </html>
