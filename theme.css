@@ -1,0 +1,264 @@
+/* ============================================================
+   THEME.CSS для TimelineJS
+   Тёмная тема с цветовой кодировкой трёх групп:
+     События          — синий    #58a6ff
+     Медиафилософия   — оранжевый #f0883e
+     Digital Humanities — зелёный #3fb950
+   ============================================================ */
+
+/* ── Палитра ────────────────────────────────────────────── */
+:root {
+  --bg:        #0d1117;
+  --panel:     #161b22;
+  --border:    #30363d;
+  --ink:       #e6edf3;
+  --muted:     #8b949e;
+  --dim:       #6e7681;
+  --accent:    #58a6ff;
+
+  --c-events:  #58a6ff;
+  --c-phil:    #f0883e;
+  --c-dh:      #3fb950;
+}
+
+/* ── Фон всего таймлайна ────────────────────────────────── */
+.tl-timeline {
+  background: var(--bg) !important;
+}
+
+.tl-slider-container-mask,
+.tl-storyslider,
+.tl-slider-item-container {
+  background: var(--bg) !important;
+}
+
+/* ── Слайд ──────────────────────────────────────────────── */
+.tl-slide {
+  background: var(--bg) !important;
+}
+
+.tl-slide-content-container {
+  background: transparent !important;
+}
+
+/* Медиа-часть слайда (левая половина) */
+.tl-media {
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Текстовая часть слайда */
+.tl-text {
+  background: var(--bg) !important;
+  padding: 0 40px !important;
+}
+
+.tl-text-content {
+  color: var(--ink) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+.tl-text-content p {
+  margin-bottom: 10px !important;
+}
+
+.tl-text-content em {
+  color: var(--muted) !important;
+  font-style: italic !important;
+}
+
+.tl-text-content b,
+.tl-text-content strong {
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+.tl-text-content a {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  border-bottom: 1px dotted var(--accent) !important;
+}
+
+/* ── Дата над заголовком ────────────────────────────────── */
+.tl-headline-date {
+  color: var(--c-phil) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+}
+
+/* ── Заголовок слайда ───────────────────────────────────── */
+h2.tl-headline,
+.tl-headline {
+  color: var(--ink) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               sans-serif !important;
+  font-size: 26px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 12px !important;
+}
+
+/* Заголовок титульного слайда (Type=title) — крупнее */
+.tl-slide-titleslide .tl-headline {
+  font-size: 40px !important;
+  letter-spacing: -0.02em !important;
+}
+
+.tl-slide-titleslide .tl-headline-date {
+  display: none !important;
+}
+
+/* ── Навигация по времени (нижняя полоса) ───────────────── */
+.tl-timenav {
+  background: var(--panel) !important;
+  border-top: 1px solid var(--border) !important;
+}
+
+.tl-timenav-container-mask,
+.tl-timenav-slider {
+  background: var(--panel) !important;
+}
+
+/* Фон горизонтальной шкалы */
+.tl-timeaxis-background,
+.tl-timeaxis {
+  background: var(--panel) !important;
+}
+
+/* Линия оси */
+.tl-timeaxis-tick:before,
+.tl-timeaxis-tick:after {
+  background: var(--border) !important;
+  border-color: var(--border) !important;
+}
+
+/* Подписи на оси (годы) */
+.tl-timeaxis-tick-text,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-tick-text {
+  color: var(--dim) !important;
+  font-size: 10px !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* ── Маркеры (флажки событий) ───────────────────────────── */
+.tl-timemarker .tl-timemarker-content-container {
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  transition: background 0.15s, border-color 0.15s !important;
+}
+
+.tl-timemarker .tl-timemarker-content-container:hover {
+  background: #1f242c !important;
+  border-color: var(--accent) !important;
+}
+
+/* Заголовок маркера (мелкий текст на «флажке») */
+.tl-timemarker .tl-timemarker-content-container .tl-headline {
+  color: var(--ink) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+
+/* Активный (текущий) маркер */
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-headline {
+  color: #0d1117 !important;
+  font-weight: 600 !important;
+}
+
+/* Линия от маркера к оси */
+.tl-timemarker .tl-timemarker-line-left:after,
+.tl-timemarker .tl-timemarker-line-right:after {
+  background: var(--border) !important;
+}
+
+.tl-timemarker.tl-timemarker-active .tl-timemarker-line-left:after,
+.tl-timemarker.tl-timemarker-active .tl-timemarker-line-right:after {
+  background: var(--accent) !important;
+}
+
+/* ── Кнопки навигации (стрелки влево/вправо) ────────────── */
+.tl-slidenav-previous .tl-slidenav-icon,
+.tl-slidenav-next .tl-slidenav-icon {
+  color: var(--ink) !important;
+  opacity: 0.7 !important;
+  transition: opacity 0.15s !important;
+}
+
+.tl-slidenav-previous:hover .tl-slidenav-icon,
+.tl-slidenav-next:hover .tl-slidenav-icon {
+  opacity: 1 !important;
+  color: var(--accent) !important;
+}
+
+.tl-slidenav-previous .tl-slidenav-title,
+.tl-slidenav-next .tl-slidenav-title,
+.tl-slidenav-previous .tl-slidenav-description,
+.tl-slidenav-next .tl-slidenav-description {
+  color: var(--muted) !important;
+  font-size: 11px !important;
+}
+
+/* ── Кнопка зума (если включена) ────────────────────────── */
+.tl-zoom-in .tl-zoom-icon,
+.tl-zoom-out .tl-zoom-icon {
+  color: var(--ink) !important;
+}
+
+/* ── Attribution (логотип в углу) ───────────────────────── */
+.tl-attribution {
+  background: transparent !important;
+  color: var(--dim) !important;
+  font-size: 10px !important;
+}
+
+.tl-attribution a {
+  color: var(--dim) !important;
+}
+
+/* ── Групповая окраска маркеров ─────────────────────────
+   TimelineJS присваивает маркерам классы на основе Group.
+   Точное имя класса зависит от версии — проверьте в инспекторе.
+   Ниже — предполагаемый вариант (слаг группы через дефис).
+   Если не сработает, замените селектор на найденный.
+   ──────────────────────────────────────────────────────── */
+
+.tl-timemarker-group-События .tl-timemarker-content-container,
+.tl-timemarker-group-events .tl-timemarker-content-container {
+  border-left: 3px solid var(--c-events) !important;
+}
+
+.tl-timemarker-group-Медиафилософия .tl-timemarker-content-container,
+.tl-timemarker-group-philosophy .tl-timemarker-content-container {
+  border-left: 3px solid var(--c-phil) !important;
+}
+
+.tl-timemarker-group-Digital-Humanities .tl-timemarker-content-container,
+.tl-timemarker-group-dh .tl-timemarker-content-container {
+  border-left: 3px solid var(--c-dh) !important;
+}
+
+/* ── Мелочи: убираем лишние тени/градиенты ──────────────── */
+.tl-timeline * {
+  box-shadow: none !important;
+}
+
+.tl-slide-background {
+  background: var(--bg) !important;
+}
